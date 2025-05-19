@@ -30,6 +30,57 @@ cd examples
 ./run.sh
 ```
 
+### 🔧 `run.sh` – Test Script Explained
+
+The `examples/run.sh` script guides you through selecting and running your ARM Assembly code with a C test file.
+
+#### What it does:
+
+1. **Lists all `.s` Assembly files** and lets you select one.
+2. **Lists all `.c` test files** and lets you select one.
+3. Asks you to name the output executable (defaults to `test`).
+4. Compiles the Assembly with `arm-linux-gnueabi-as`.
+5. Links it with the selected C file using `arm-linux-gnueabi-gcc`.
+6. Runs the executable using `qemu-arm`.
+
+#### Example usage:
+
+```bash
+cd examples
+./run.sh
+```
+
+You will be prompted to interactively select files and run them.
+
+---
+
+### 📦 Dependencies (If Running Without Docker)
+
+If you want to run everything **natively on your system without Docker**, make sure these packages are installed.
+
+#### On Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install -y gcc-arm-linux-gnueabi \
+  libc6-dev-armel-cross \
+  qemu-user \
+  build-essential
+```
+
+#### On Fedora:
+
+```bash
+sudo dnf install -y arm-none-eabi-gcc-cs \
+  glibc-arm-linux-gnueabi \
+  qemu-user \
+  make gcc
+```
+
+*Note: package names might vary slightly across Fedora versions — check availability via `dnf search` if needed.*
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -55,7 +106,4 @@ The Docker image installs:
 
 This project is released under the MIT License.
 
-```
-
-Se vuoi posso anche aggiungerti una badge bar in cima (build status, license, ecc.) o una sezione con esempi di output se vuoi rendere il progetto ancora più chiaro.
 ```
