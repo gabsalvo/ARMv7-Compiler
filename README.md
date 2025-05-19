@@ -105,5 +105,3 @@ The Docker image installs:
 ## 📜 License
 
 This project is released under the MIT License.
-
-```
